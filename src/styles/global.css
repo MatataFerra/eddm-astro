@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@fontsource-variable /space-grotesk;
+@fontsource-variable /jetbrains-mono;
+
+@theme {
+  /* Definimos las familias tipográficas */
+  --font-display: 'Space Grotesk Variable', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', monospace;
+
+  /* Colores Neobrutalistas */
+  --color-brand-green: #00ff00;
+  --color-brand-cyan: #00ffff;
+  --color-main-dark: #1a1a1a;
+  --color-bg-light: #f0f0f0;
+  --color-bg-dirty: #fdfdf7;
+  --color-dot-pattern: #d1d1d1;
+
+  --border-thick: 3px solid var(--color-main-dark);
+  --shadow-neo: 5px 5px 0px var(--color-main-dark);
+
+  --neo-offset: 4px;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dirty text-main-dark font-mono antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-bold tracking-tighter;
+  }
+}
+
+@utility neo-box {
+  border: var(--border-thick);
+  box-shadow: var(--shadow-neo);
+  @apply bg-white transition-all duration-200 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_#1A1A1A];
+}
+
+@utility bg-lined {
+  background-color: var(--color-bg-dirty);
+
+  background-image:
+    linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+    linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+    linear-gradient(to right, #e0e0e0 1px, transparent 1px),
+    linear-gradient(to right, #e0e0e0 1px, transparent 1px);
+
+  background-position:
+    20% 0,
+    40% 0,
+    60% 0,
+    80% 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.bg-dots::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, black 15%, transparent 10%);
+  background-size: 10px 10px;
+  z-index: -1;
+}

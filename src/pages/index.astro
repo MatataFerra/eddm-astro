@@ -1,11 +1,56 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Header from '@/components/home/Header.astro';
+import HeroBio from '@/components/home/HeroBio.astro';
+import TravelSelector from '@/components/home/svelte/TravelSelector.svelte';
+import WeekGrid from '@/components/home/svelte/WeekGrid.svelte';
+import TravelStats from '@/components/home/TravelStats.astro';
+import Divider from '@/components/share/Divider.astro';
+import StoreInitializer from '@/components/share/svelte/StoreInitializer.svelte';
+import Layout from '@/layouts/Layout.astro';
+import { getAllContentNavigate } from '@/lib/api/get-content-navigate';
+import type { AllContentNavigate } from '@/lib/interfaces/share';
+import RecentMoments from '@/components/home/svelte/RecentMoments.svelte';
+import Box from '@/components/share/Box.astro';
+import TaleSection from '@/components/home/svelte/TaleSection.svelte';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const response = await getAllContentNavigate<AllContentNavigate>();
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio">
+  <Header />
+  <main class="mx-auto max-w-full px-8 py-4">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <HeroBio />
+      <TravelStats />
+    </div>
+    <Divider class="my-12 border-t-2 border-zinc-200" />
+    <section class="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:grid-rows-2">
+      <div class="lg:col-span-3 lg:row-span-2">
+        <Box data-slot="container-travel-selector" class="h-full overflow-hidden bg-white">
+          <div class="border-main-dark border-b-4 p-4 sm:p-6 lg:p-8">
+            <h2 class="font-display mb-4 text-6xl font-black uppercase italic xl:text-7xl">
+              Un año viajando
+            </h2>
+            <TravelSelector client:load class="absolute" />
+          </div>
+          <WeekGrid client:load />
+        </Box>
+      </div>
+
+      <div class="lg:col-span-1">
+        <RecentMoments
+          client:visible
+          image={response?.data.further[0]?.header?.url || ''}
+          description={response?.data.further[0]?.title || ''}
+          class="h-full"
+        />
+      </div>
+
+      <div class="lg:col-span-1">
+        <TaleSection tales={response?.data.tales ?? []} client:load />
+      </div>
+
+      <StoreInitializer client:load articles={response?.data?.articles ?? []} />
+    </section>
+  </main>
 </Layout>

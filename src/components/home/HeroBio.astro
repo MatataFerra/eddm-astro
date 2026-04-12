@@ -1,0 +1,60 @@
+---
+import Box from '@/components/share/Box.astro';
+import Heading from '@/components/share/Heading.astro';
+import { Image } from 'astro:assets';
+import myHalftoneFace from '@/assets/profile.jpg';
+---
+
+<Box
+  hasShadow={true}
+  class="flex flex-col gap-6 overflow-hidden bg-white p-0! font-mono md:flex-row"
+>
+  <div
+    class="border-main-dark relative flex w-full items-center justify-center overflow-hidden border-b-[3px] bg-white p-12 md:h-auto md:w-2/5 md:border-r-[3px] md:border-b-0"
+  >
+    <div class="avatar-frame">
+      <Image
+        src={myHalftoneFace}
+        alt="Avatar procesado con efecto Halftone de Matias"
+        quality="max"
+        format="webp"
+        class="h-full w-full object-cover"
+      />
+    </div>
+
+    <div
+      class="bg-brand-cyan border-main-dark absolute top-2 right-2 h-4 w-4 border-2 shadow-[2px_2px_0px_#1A1A1A]"
+    >
+    </div>
+  </div>
+
+  <div class="flex flex-1 flex-col justify-center p-6">
+    <Heading level={2} class="mb-4 text-left text-4xl md:text-5xl"> QUIÉN SOY YO </Heading>
+
+    <div class="space-y-4 text-sm leading-relaxed text-gray-800 md:text-base">
+      <p>
+        <span class="bg-yellow-200 px-1">Matias, de Argentina.</span> Programador de día, Cellar Hand
+        de noche (o al revés, según la temporada).
+      </p>
+      <p>
+        Cambié temporalmente React por el <strong class="bg-brand-cyan/20 px-1"
+          >manejo de barricas</strong
+        > y la performance web por la eficiencia en la bodega. Pero la bitácora sigue activa.
+      </p>
+    </div>
+  </div>
+</Box>
+
+<style>
+  .avatar-frame {
+    position: relative;
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--color-main-dark, #1a1a1a);
+    box-shadow: 5px 5px 0px 0px var(--color-main-dark, #1a1a1a);
+    background: white;
+    flex-shrink: 0;
+  }
+</style>

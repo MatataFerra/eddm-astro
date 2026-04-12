@@ -1,0 +1,51 @@
+---
+// src/components/TravelStats.astro
+import Box from '@/components/share/Box.astro';
+import Heading from '@/components/share/Heading.astro';
+
+interface Stat {
+  label: string;
+  value: string;
+}
+
+const stats: Stat[] = [
+  { label: 'KM', value: '15' },
+  { label: 'Países', value: '12' },
+  { label: 'Relatos', value: '35' },
+];
+
+const nextDestination = 'Japón';
+---
+
+<Box class="bg-brand-green group flex h-full flex-col justify-between p-6">
+  <div>
+    <div class="mb-6 flex items-start justify-between">
+      <Heading level={3} class="text-4xl leading-none md:text-5xl"> Stats del Viaje </Heading>
+      <div
+        class="border-main-dark flex h-10 w-10 items-center justify-center border-2 bg-white shadow-[3px_3px_0px_#1A1A1A]"
+      >
+        <span class="text-xl">✈️</span>
+      </div>
+    </div>
+
+    <div class="mb-8 flex justify-between gap-6">
+      {
+        stats.map((stat) => (
+          <div class="flex flex-col items-center justify-center gap-2 font-mono font-black tracking-tighter">
+            <p class="text-7xl md:text-9xl">{stat.value}</p>
+            <p class="mt-1 text-3xl">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="bg-main-dark -mx-6 mt-auto -mb-6 p-3 text-white">
+    <p class="mb-1 text-[10px] font-black tracking-[0.2em] uppercase opacity-70">
+      Próximo Destino:
+    </p>
+    <p class="text-brand-cyan text-xl font-bold tracking-tight uppercase md:text-2xl">
+      {nextDestination}
+    </p>
+  </div>
+</Box>

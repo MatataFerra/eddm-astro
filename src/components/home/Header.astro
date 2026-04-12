@@ -1,0 +1,32 @@
+---
+import Box from '@/components/share/Box.astro';
+import Heading from '@/components/share/Heading.astro';
+
+const today = new Date();
+const formattedDate = today
+  .toLocaleDateString('es-AR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+  .toUpperCase();
+
+const location = 'SYDNEY, AUSTRALIA';
+---
+
+<header class="border-main-dark w-full border-b-4 py-4">
+  <section class="border-main-dark relative px-4 py-8 md:py-12 lg:px-8">
+    <div class="text-center">
+      <Heading level={1} class="text-6xl sm:text-7xl md:text-9xl"> El Diario de Mati </Heading>
+    </div>
+
+    <div
+      class="flex translate-y-1/2 items-center justify-center text-xs font-bold tracking-widest uppercase sm:text-sm"
+    >
+      <Box class="flex items-center gap-2 px-6 py-4 select-none" hasShadow>
+        {location}
+        <span class="hidden md:inline">— {formattedDate}</span>
+      </Box>
+    </div>
+  </section>
+</header>

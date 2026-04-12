@@ -1,0 +1,162 @@
+---
+/**
+ * DirtyPaperDecor.astro
+ *
+ * Componente puramente decorativo. Se monta con position: fixed
+ * y no interfiere con el flujo ni la semántica del documento.
+ *
+ * Poné esto una sola vez en tu layout, en cualquier lugar:
+ *
+ *   <body>
+ *     <DirtyPaperDecor />
+ *     <header>...</header>
+ *     <main>...</main>
+ *   </body>
+ *
+ * El background-color del body lo manejás vos en tu CSS global:
+ *   body { background-color: #FAF8F3; }
+ */
+---
+
+<!-- Líneas verticales -->
+<div class="dp-lines" aria-hidden="true">
+  <div class="dp-line"></div>
+  <div class="dp-line"></div>
+  <div class="dp-line"></div>
+  <div class="dp-line"></div>
+</div>
+
+<!-- Manchas en las esquinas -->
+<svg
+  class="dp-dirt dp-tl"
+  width="160"
+  height="160"
+  viewBox="0 0 160 160"
+  fill="none"
+  aria-hidden="true"
+>
+  <circle cx="8" cy="12" r="3" fill="#8B7355" opacity="0.3"></circle>
+  <circle cx="22" cy="5" r="2" fill="#8B7355" opacity="0.25"></circle>
+  <circle cx="3" cy="30" r="4" fill="#8B7355" opacity="0.2"></circle>
+  <circle cx="35" cy="15" r="2.5" fill="#8B7355" opacity="0.15"></circle>
+  <circle cx="15" cy="42" r="1.5" fill="#8B7355" opacity="0.2"></circle>
+  <circle cx="50" cy="8" r="1.8" fill="#8B7355" opacity="0.12"></circle>
+  <circle cx="5" cy="55" r="2" fill="#8B7355" opacity="0.15"></circle>
+  <circle cx="28" cy="28" r="5" fill="#8B7355" opacity="0.08"></circle>
+  <circle cx="42" cy="35" r="1.2" fill="#8B7355" opacity="0.18"></circle>
+  <circle cx="60" cy="20" r="1" fill="#8B7355" opacity="0.1"></circle>
+  <ellipse cx="12" cy="18" rx="8" ry="5" fill="#8B7355" opacity="0.06" transform="rotate(-30 12 18)"
+  ></ellipse>
+  <ellipse cx="30" cy="8" rx="12" ry="3" fill="#8B7355" opacity="0.05" transform="rotate(-15 30 8)"
+  ></ellipse>
+  <path d="M0 0 Q20 8, 5 25 Q15 20, 25 10 Q18 5, 0 0Z" fill="#8B7355" opacity="0.04"></path>
+  <circle cx="70" cy="3" r="1.5" fill="#8B7355" opacity="0.08"></circle>
+  <circle cx="2" cy="70" r="1.8" fill="#8B7355" opacity="0.1"></circle>
+  <circle cx="45" cy="50" r="0.8" fill="#8B7355" opacity="0.12"></circle>
+  <path d="M0 0 Q10 3, 3 12" stroke="#8B7355" stroke-width="0.5" opacity="0.1" fill="none"></path>
+  <path d="M8 0 Q15 10, 5 18" stroke="#8B7355" stroke-width="0.3" opacity="0.08" fill="none"></path>
+</svg>
+
+<svg
+  class="dp-dirt dp-tr"
+  width="160"
+  height="160"
+  viewBox="0 0 160 160"
+  fill="none"
+  aria-hidden="true"
+>
+  <circle cx="8" cy="12" r="3" fill="#8B7355" opacity="0.3"></circle>
+  <circle cx="22" cy="5" r="2" fill="#8B7355" opacity="0.25"></circle>
+  <circle cx="3" cy="30" r="4" fill="#8B7355" opacity="0.2"></circle>
+  <circle cx="35" cy="15" r="2.5" fill="#8B7355" opacity="0.15"></circle>
+  <circle cx="15" cy="42" r="1.5" fill="#8B7355" opacity="0.2"></circle>
+  <circle cx="50" cy="8" r="1.8" fill="#8B7355" opacity="0.12"></circle>
+  <circle cx="5" cy="55" r="2" fill="#8B7355" opacity="0.15"></circle>
+  <circle cx="28" cy="28" r="5" fill="#8B7355" opacity="0.08"></circle>
+  <circle cx="42" cy="35" r="1.2" fill="#8B7355" opacity="0.18"></circle>
+  <ellipse cx="12" cy="18" rx="8" ry="5" fill="#8B7355" opacity="0.06" transform="rotate(-30 12 18)"
+  ></ellipse>
+  <ellipse cx="30" cy="8" rx="12" ry="3" fill="#8B7355" opacity="0.05" transform="rotate(-15 30 8)"
+  ></ellipse>
+  <path d="M0 0 Q20 8, 5 25 Q15 20, 25 10 Q18 5, 0 0Z" fill="#8B7355" opacity="0.04"></path>
+</svg>
+
+<svg
+  class="dp-dirt dp-bl"
+  width="160"
+  height="160"
+  viewBox="0 0 160 160"
+  fill="none"
+  aria-hidden="true"
+>
+  <circle cx="8" cy="12" r="3" fill="#8B7355" opacity="0.3"></circle>
+  <circle cx="22" cy="5" r="2" fill="#8B7355" opacity="0.25"></circle>
+  <circle cx="3" cy="30" r="4" fill="#8B7355" opacity="0.2"></circle>
+  <circle cx="35" cy="15" r="2.5" fill="#8B7355" opacity="0.15"></circle>
+  <circle cx="15" cy="42" r="1.5" fill="#8B7355" opacity="0.2"></circle>
+  <circle cx="28" cy="28" r="5" fill="#8B7355" opacity="0.08"></circle>
+  <ellipse cx="12" cy="18" rx="8" ry="5" fill="#8B7355" opacity="0.06" transform="rotate(-30 12 18)"
+  ></ellipse>
+  <path d="M0 0 Q20 8, 5 25 Q15 20, 25 10 Q18 5, 0 0Z" fill="#8B7355" opacity="0.04"></path>
+</svg>
+
+<svg
+  class="dp-dirt dp-br"
+  width="160"
+  height="160"
+  viewBox="0 0 160 160"
+  fill="none"
+  aria-hidden="true"
+>
+  <circle cx="8" cy="12" r="3" fill="#8B7355" opacity="0.3"></circle>
+  <circle cx="22" cy="5" r="2" fill="#8B7355" opacity="0.25"></circle>
+  <circle cx="3" cy="30" r="4" fill="#8B7355" opacity="0.2"></circle>
+  <circle cx="35" cy="15" r="2.5" fill="#8B7355" opacity="0.15"></circle>
+  <circle cx="28" cy="28" r="5" fill="#8B7355" opacity="0.08"></circle>
+  <ellipse cx="12" cy="18" rx="8" ry="5" fill="#8B7355" opacity="0.06" transform="rotate(-30 12 18)"
+  ></ellipse>
+</svg>
+
+<style>
+  .dp-lines {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: space-evenly;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .dp-line {
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .dp-dirt {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .dp-tl {
+    top: 0;
+    left: 0;
+  }
+  .dp-tr {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+  }
+  .dp-bl {
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
+  }
+  .dp-br {
+    bottom: 0;
+    right: 0;
+    transform: scale(-1, -1);
+  }
+</style>

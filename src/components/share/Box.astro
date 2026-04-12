@@ -1,0 +1,33 @@
+---
+import { BOX_BASE_STYLES } from '@/lib/styles';
+import { cn } from '@/lib/utils';
+
+interface Props {
+  hasShadow?: boolean;
+  active?: boolean;
+  class?: string;
+  as?: string;
+  [key: string]: any;
+}
+
+const {
+  hasShadow = false,
+  class: className,
+  as: Tag = 'div',
+  active = false,
+  ...rest
+} = Astro.props;
+
+const baseStyles = cn(
+  BOX_BASE_STYLES.container,
+  hasShadow && BOX_BASE_STYLES.shadow,
+  active && BOX_BASE_STYLES.active,
+  className
+);
+
+const random = crypto.randomUUID().slice(0, 8);
+---
+
+<Tag data-component=`astro-box-${random}` class={baseStyles} {...rest}>
+  <slot />
+</Tag>
