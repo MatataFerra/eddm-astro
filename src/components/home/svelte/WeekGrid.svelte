@@ -12,7 +12,7 @@
     <div
       in:fade={{ duration: 200, delay: 180 }}
       out:fade={{ duration: 150 }}
-      class="mt-8 grid h-auto min-h-100 grid-cols-1 gap-16 self-start sm:grid-cols-2 lg:grid-cols-3"
+      class="grid h-auto min-h-100 grid-cols-1 gap-16 self-start sm:grid-cols-2 lg:grid-cols-3"
       style="grid-area: 1 / 1;"
     >
       {#each $filteredArticles as article (article.id)}

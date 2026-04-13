@@ -70,4 +70,5 @@
   background-image: radial-gradient(circle, black 15%, transparent 10%);
   background-size: 10px 10px;
   z-index: -1;
+  opacity: 20%;
 }

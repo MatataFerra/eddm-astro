@@ -45,7 +45,7 @@
   };
 </script>
 
-<div class={cn('group relative z-10 mb-10', className)}>
+<div class={cn('group relative z-10', className)}>
   <button
     onclick={() => scroll('left')}
     class="border-main-dark absolute top-1/2 -left-4 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center border-2 bg-white opacity-0 shadow-[2px_2px_0px_0px_rgba(26,26,26,1)] transition-all group-hover:opacity-100 active:translate-x-px active:translate-y-px active:shadow-none"
