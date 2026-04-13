@@ -12,14 +12,14 @@
     <div
       in:fade={{ duration: 200, delay: 180 }}
       out:fade={{ duration: 150 }}
-      class="mt-8 grid h-auto min-h-100 grid-cols-1 gap-10 self-start sm:grid-cols-2 lg:grid-cols-3"
+      class="mt-8 grid h-auto min-h-100 grid-cols-1 gap-16 self-start sm:grid-cols-2 lg:grid-cols-3"
       style="grid-area: 1 / 1;"
     >
       {#each $filteredArticles as article (article.id)}
         <WeekCard {article} />
       {:else}
         <div
-          class="col-span-full flex flex-col p-8 items-center justify-center border-2 border-dashed border-main-dark/30 h-64 bg-white/50"
+          class="col-span-full flex flex-col p-8 items-center justify-center border-2 border-dashed border-main-dark/30 rounded-2xl bg-white z-10 h-full"
         >
           <p class="font-mono italic text-gray-500">
             No se encontraron notas... refrescá tu navegador

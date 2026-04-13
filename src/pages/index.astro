@@ -24,8 +24,8 @@ const response = await getAllContentNavigate<AllContentNavigate>();
       <TravelStats />
     </div>
     <Divider class="my-12 border-t-2 border-zinc-200" />
-    <section class="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:grid-rows-2">
-      <div class="lg:col-span-3 lg:row-span-2">
+    <section class="grid grid-cols-4 gap-8 lg:grid-rows-2">
+      <div class="lg:col-span-4 lg:row-span-2">
         <Box data-slot="container-travel-selector" class="h-full overflow-hidden bg-white">
           <div class="border-main-dark border-b-4 p-4 sm:p-6 lg:p-8">
             <h2 class="font-display mb-4 text-6xl font-black uppercase italic xl:text-7xl">
@@ -37,7 +37,7 @@ const response = await getAllContentNavigate<AllContentNavigate>();
         </Box>
       </div>
 
-      <div class="lg:col-span-1">
+      <div class="col-start-1 col-end-2">
         <RecentMoments
           client:visible
           image={response?.data.further[0]?.header?.url || ''}
@@ -46,7 +46,7 @@ const response = await getAllContentNavigate<AllContentNavigate>();
         />
       </div>
 
-      <div class="lg:col-span-1">
+      <div class="col-start-2 col-end-5">
         <TaleSection tales={response?.data.tales ?? []} client:load />
       </div>
 

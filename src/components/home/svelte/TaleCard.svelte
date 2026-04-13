@@ -6,7 +6,7 @@
     tale: ContentNavigate;
   }
 
-  let { tale } = $props();
+  let { tale }: Props = $props();
 </script>
 
 <a
@@ -14,7 +14,11 @@
   class="group border-main-dark/10 hover:border-main-dark flex gap-4 border-b-2 pb-4 transition-colors"
 >
   <div class="bg-main-dark border-main-dark h-20 w-20 shrink-0 overflow-hidden border-2">
-    <img src={tale.header?.url} class="h-full w-full object-cover contrast-150 grayscale" alt="" />
+    <img
+      src={tale.header?.url}
+      class="size-full object-cover contrast-150 transition-colors group-hover:contrast-0"
+      alt={tale.title}
+    />
   </div>
   <div>
     <span class="font-mono text-[10px] text-gray-400 uppercase"

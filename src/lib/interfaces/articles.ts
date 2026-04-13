@@ -7,7 +7,7 @@ export type Article = z.infer<typeof ExtendedArticleSchema>;
 export type PartialContentNavigateFields = Pick<Article, 'createdAt'>;
 export type PickedContentNavigate = Pick<
   Article,
-  'id' | 'order' | 'slug' | 'category' | 'title' | 'header'
+  'id' | 'order' | 'slug' | 'category' | 'title' | 'header' | 'createdAt'
 >;
 
 export type ArticlePromise = Promise<ApiResponse<ContentBySlug<Article>> | null>;

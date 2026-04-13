@@ -6,23 +6,20 @@
 
   let { tales } = $props<{ tales: ContentNavigate[] }>();
 
-  const featuredTales = $derived(tales?.slice(0, 2) ?? []);
+  const featuredTales = $derived(tales?.slice(0, 4) ?? []);
 </script>
 
-<Box class="grid h-full grid-rows-[auto_1fr_auto] border-2 bg-white p-8">
+<Box class="flex h-full flex-col border-2 bg-white p-8">
   <div class="mb-8 flex items-end justify-between">
     <h2 class="font-display text-5xl leading-none font-black uppercase italic">Relatos</h2>
   </div>
 
-  <div class="flex flex-col gap-8">
+  <div class="z-10 grid grid-cols-2 gap-8 bg-white">
     {#each featuredTales as tale}
       <TaleCard {tale} />
     {/each}
   </div>
-  <a
-    href={APP_ROUTER.TALES}
-    class="decoration-brand-cyan font-mono text-xs font-bold underline decoration-4"
-  >
+  <a href={APP_ROUTER.TALES} class="my-auto self-end font-mono font-bold">
     VER ARCHIVO COMPLETO (ALL {tales?.length})
   </a>
 </Box>

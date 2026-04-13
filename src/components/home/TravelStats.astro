@@ -1,5 +1,4 @@
 ---
-// src/components/TravelStats.astro
 import Box from '@/components/share/Box.astro';
 import Heading from '@/components/share/Heading.astro';
 
@@ -17,10 +16,14 @@ const stats: Stat[] = [
 const nextDestination = 'Japón';
 ---
 
-<Box class="bg-brand-green group flex h-full flex-col justify-between p-6">
+<Box class="bg-brand-scream-green group flex h-full flex-col justify-between p-6">
   <div>
     <div class="mb-6 flex items-start justify-between">
-      <Heading level={3} class="text-4xl leading-none md:text-5xl"> Stats del Viaje </Heading>
+      <h3
+        class="font-display text-main-dark text-4xl leading-tight font-black tracking-tighter md:text-7xl"
+      >
+        Stats del Viaje
+      </h3>
       <div
         class="border-main-dark flex h-10 w-10 items-center justify-center border-2 bg-white shadow-[3px_3px_0px_#1A1A1A]"
       >
